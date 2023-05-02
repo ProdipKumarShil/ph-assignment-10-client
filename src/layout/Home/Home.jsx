@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <Register></Register>
+      <Banner></Banner>
     </div>
   );
 };
