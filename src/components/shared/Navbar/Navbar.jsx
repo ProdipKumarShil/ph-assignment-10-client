@@ -1,11 +1,9 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/imgs/logo.png'
-import { AuthContext } from '../../../provider/AuthProvider';
 
 const Navbar = () => {
-  const {user} = useContext(AuthContext)
-  console.log(user)
+  
   return (
 
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
