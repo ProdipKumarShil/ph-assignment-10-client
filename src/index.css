@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.btn{
+  @apply bg-blue-700 py-4 text-gray-200
+}
+.my-header{
+  @apply text-center text-5xl font-semibold pt-4 
+}
