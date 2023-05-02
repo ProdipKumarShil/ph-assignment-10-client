@@ -15,6 +15,7 @@ const Home = () => {
       <Navbar></Navbar>
       <Banner></Banner>
       <CounterCard></CounterCard>
+      <ChefSection></ChefSection>
     </div>
   );
 };
