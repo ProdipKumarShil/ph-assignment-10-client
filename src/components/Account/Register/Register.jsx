@@ -31,7 +31,7 @@ const Register = () => {
           <label htmlFor="terms" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#" className="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a></label>
         </div>
         <button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</button>
-        <p className='text-center my-4'><small>Already have an account? <Link className='text-blue-700 underline'>Login</Link></small></p>
+        <p className='text-center my-4'><small>Already have an account? <Link to='/account' className='text-blue-700 underline'>Login</Link></small></p>
       </form>
       <div className="">
         <Link className='flex mx-auto mb-2 items-center gap-2 border w-[40%] md:w-[20%] p-2 rounded-full'><img className='w-8' src={mail} alt="" /> <span className='font-semibold text-xl'>Continue with Email</span></Link>
