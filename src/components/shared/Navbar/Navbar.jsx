@@ -30,7 +30,7 @@ const Navbar = () => {
               <Link to="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded md:border-0  md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</Link>
             </li>
             <li>
-              <Link to="#" className="btn w-20 h-10 flex items-center justify-center  text-gray-900 rounded md:border-0   dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</Link>
+              <Link to="/account" className="btn w-20 h-10 flex items-center justify-center  text-gray-900 rounded md:border-0   dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</Link>
             </li>
           </ul>
         </div>

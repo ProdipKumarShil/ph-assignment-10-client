@@ -8,6 +8,7 @@ import Chefs from '../layout/Chefs/Chefs';
 import Home from '../layout/Home/Home';
 import Register from '../components/Account/Register/Register';
 import Login from '../components/Account/Login/Login';
+import ChefPage from '../components/another/ChefPage/ChefPage';
 
 const Routes = createBrowserRouter([
   {
@@ -30,7 +31,13 @@ const Routes = createBrowserRouter([
   },
   {
     path: '/chefs',
-    element: <Chefs></Chefs>
+    element: <Chefs></Chefs>,
+    children: [
+      {
+        path: '/chefs',
+        element: <ChefPage></ChefPage>
+      }
+    ]
   }
 ]);
 
