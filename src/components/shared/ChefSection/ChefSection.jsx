@@ -44,7 +44,7 @@ const ChefSection = () => {
         {card()}
         {card()}
       </div>
-      <Link className='btn text-xl  font-bold rounded px-8 mx-auto'>Show More</Link>
+      <Link to='/chefs' className='btn text-xl  font-bold rounded px-8 mx-auto'>Show More</Link>
     </div>
   );
 };
