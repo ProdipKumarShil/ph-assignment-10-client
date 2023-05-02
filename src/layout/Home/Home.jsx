@@ -16,6 +16,7 @@ const Home = () => {
       <Banner></Banner>
       <CounterCard></CounterCard>
       <ChefSection></ChefSection>
+      <Hero></Hero>
     </div>
   );
 };
