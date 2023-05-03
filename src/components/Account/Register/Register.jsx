@@ -1,10 +1,41 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import google from '../../../assets/imgs/google-g.png'
 import git from '../../../assets/imgs/git-g.png'
 import mail from '../../../assets/imgs/email.png'
+import { AuthContext } from '../../../provider/AuthProvider';
+import { Toaster, toast } from 'react-hot-toast';
 
 const Register = () => {
+
+  const { googleSignUp, githubSignUp } = useContext(AuthContext)
+  const handleGoogleSignUp = () => {
+    googleSignUp()
+      .then(result => {
+        console.log('done')
+        console.log(result.user)
+        toast.success('success fully login')
+      })
+      .catch(err => {
+        const er = err.message
+        console.log(er)
+        toast.error('Login Failed')
+      })
+  }
+
+  const handleGitSignUp = () => {
+    return githubSignUp()
+      .then(result => {
+        console.log('git login done')
+        console.log(result)
+        toast.success('success fully login')
+      })
+      .catch(err => {
+        console.log(err)
+        toast.error('Login Failed')
+      })
+  }
+  
   return (
     <div>
       <form className='w-full md:w-1/2 px-8 py-4 mx-auto'>
@@ -35,9 +66,10 @@ const Register = () => {
       </form>
       <div className="">
         <Link className='flex mx-auto mb-2 items-center gap-2 border w-[40%] md:w-[20%] p-2 rounded-full'><img className='w-8' src={mail} alt="" /> <span className='font-semibold text-xl'>Continue with Email</span></Link>
-        <Link className='flex mx-auto mb-2 items-center gap-2 border w-[40%] md:w-[20%] p-2 rounded-full'><img className='w-8' src={google} alt="" /> <span className='font-semibold text-xl'>Continue with Google</span></Link>
-        <Link className='flex mx-auto mb-2 items-center gap-2 border w-[40%] md:w-[20%] p-2 rounded-full'><img className='w-8' src={git} alt="" /> <span className='font-semibold text-xl'>Continue with Git-Hub</span></Link>
+        <Link onClick={handleGoogleSignUp} className='flex mx-auto mb-2 items-center gap-2 border w-[40%] md:w-[20%] p-2 rounded-full'><img className='w-8' src={google} alt="" /> <span className='font-semibold text-xl'>Continue with Google</span></Link>
+        <Link onClick={handleGitSignUp} className='flex mx-auto mb-2 items-center gap-2 border w-[40%] md:w-[20%] p-2 rounded-full'><img className='w-8' src={git} alt="" /> <span className='font-semibold text-xl'>Continue with Git-Hub</span></Link>
       </div>
+      <Toaster></Toaster>
     </div>
   );
 };
