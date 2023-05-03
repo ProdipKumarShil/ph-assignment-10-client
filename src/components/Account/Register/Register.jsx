@@ -13,12 +13,12 @@ const Register = () => {
   const [password, setPassword] = useState('')
   const [photo_url, setPhoto_url] = useState('')
 
-  const { googleSignUp, githubSignUp, emailSignUp } = useContext(AuthContext)
+  const { googleSignUp, githubSignUp, emailSignUp, user, setUser } = useContext(AuthContext)
   const handleGoogleSignUp = () => {
     googleSignUp()
       .then(result => {
-        console.log('done')
-        console.log(result.user)
+        const mUser = setUser(result.user)
+        console.log(mUser)
         toast.success('success fully login')
       })
       .catch(err => {
