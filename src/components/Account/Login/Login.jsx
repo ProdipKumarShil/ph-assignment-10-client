@@ -4,6 +4,7 @@ import google from '../../../assets/imgs/google-g.png'
 import git from '../../../assets/imgs/git-g.png'
 import mail from '../../../assets/imgs/email.png'
 import { AuthContext } from '../../../provider/AuthProvider';
+import { Toaster, toast } from 'react-hot-toast';
 
 const Login = () => {
   const { googleSignUp, githubSignUp } = useContext(AuthContext)
@@ -12,8 +13,13 @@ const Login = () => {
       .then(result => {
         console.log('done')
         console.log(result.user)
+        toast.success('success fully login')
       })
-      .catch(err => console.log(err.message))
+      .catch(err => {
+        const er = err.message
+        console.log(er)
+        toast.error('Login Failed')
+      })
   }
 
   const handleGitSignUp = () => {
@@ -26,6 +32,8 @@ const Login = () => {
         console.log(err)
       })
   }
+
+  
   return (
     <div>
       <form className='w-full md:w-1/2 px-8 py-4 mx-auto'>
@@ -51,6 +59,7 @@ const Login = () => {
         <Link onClick={handleGoogleSignUp} className='flex mx-auto mb-2 items-center gap-2 border w-[40%] md:w-[20%] p-2 rounded-full'><img className='w-8' src={google} alt="" /> <span className='font-semibold text-xl'>Continue with Google</span></Link>
         <Link onClick={handleGitSignUp} className='flex mx-auto mb-2 items-center gap-2 border w-[40%] md:w-[20%] p-2 rounded-full'><img className='w-8' src={git} alt="" /> <span className='font-semibold text-xl'>Continue with Git-Hub</span></Link>
       </div>
+      <Toaster></Toaster>
     </div>
   );
 };
