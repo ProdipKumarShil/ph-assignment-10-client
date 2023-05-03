@@ -4,7 +4,7 @@ import logo from '../../../assets/imgs/logo.png'
 import { AuthContext } from '../../../provider/AuthProvider';
 
 const Navbar = () => {
-  const {user} = useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext)
   console.log(user)
   return (
 
@@ -32,10 +32,10 @@ const Navbar = () => {
             <li>
               <Link to="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded md:border-0  md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</Link>
             </li>
-            <li>
+            <li className={!user && 'hidden'}>
               {user?.displayName}
             </li>
-            <li>
+            <li className={!user && 'hidden'}>
               <img data-tooltip-target="tooltip-default" className='w-10 h-10 rounded-full' src={user?.photoURL} alt="" />
               <div id="tooltip-default" role="tooltip" className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
                 {user?.displayName}
@@ -43,7 +43,7 @@ const Navbar = () => {
               </div>
             </li>
             <li>
-              {user ? <Link to="/account" className="btn w-20 h-10 flex items-center justify-center  text-gray-900 rounded md:border-0   dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Logout</Link> : <Link to="/account" className="btn w-20 h-10 flex items-center justify-center  text-gray-900 rounded md:border-0   dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</Link>}
+              {user ? <Link onClick={logOut} to="/account" className="btn w-20 h-10 flex items-center justify-center  text-gray-900 rounded md:border-0   dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Logout</Link> : <Link to="/account" className="btn w-20 h-10 flex items-center justify-center  text-gray-900 rounded md:border-0   dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</Link>}
             </li>
           </ul>
         </div>
