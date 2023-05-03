@@ -1,10 +1,12 @@
 import React, { createContext } from 'react';
-import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth'
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth'
 import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext(null)
 const auth = getAuth(app)
+
 const googleProvider = new GoogleAuthProvider()
+const gitProvider = new GithubAuthProvider()
 
 const AuthProvider = ({children}) => {
   const user = {name: 'prodip'}
@@ -13,9 +15,14 @@ const AuthProvider = ({children}) => {
     return signInWithPopup(auth, googleProvider)
   }
 
+  const githubSignUp = () => {
+    return signInWithPopup(auth, gitProvider)
+  }
+
   const info = {
     user,
     googleSignUp,
+    githubSignUp
   }
   return (
     <AuthContext.Provider value={info}>
