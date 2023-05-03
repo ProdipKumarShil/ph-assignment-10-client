@@ -20,7 +20,7 @@ const AuthProvider = ({children}) => {
   }
 
   const emailSignUp = (email, password) => {
-    return createUserWithEmailAndPassword(auth)
+    return createUserWithEmailAndPassword(auth, email, password)
   }
 
   const info = {

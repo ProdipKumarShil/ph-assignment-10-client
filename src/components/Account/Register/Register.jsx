@@ -58,7 +58,15 @@ const Register = () => {
     else{
       setPasswordError('')
     }
-    console.log('login success fully')
+    emailSignUp(email, password)
+      .then(result => {
+        console.log(result)
+        toast.success('Register success fully')
+      })
+      .catch(error => {
+        toast.error('Register failed')
+        console.log(error)
+      })
   }
 
   
