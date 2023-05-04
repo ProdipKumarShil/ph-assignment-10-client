@@ -42,6 +42,8 @@ const [user, setUser] = useState({})
     return signOut(auth)
   }
 
+  // 
+
   const info = {
     googleSignUp,
     githubSignUp,
