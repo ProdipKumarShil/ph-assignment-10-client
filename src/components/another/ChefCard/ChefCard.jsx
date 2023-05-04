@@ -3,11 +3,13 @@ import chef2 from '../../../assets/chef/chef2.png'
 import { Link } from 'react-router-dom';
 import { AiOutlineHeart } from "react-icons/ai";
 
-const ChefCard = () => {
+const ChefCard = ({chef}) => {
+  const {id, name, img, exp, recipe, likes} = chef
+  console.log(chef)
   return (
     <div className="w-full  mb-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <Link className='' href="#">
-        <img className=" mx-auto my-4 rounded-t-lg h-80" src={chef2} alt="product image" />
+        <img className=" mx-auto w-full object-cover  rounded-t-lg h-[400px] md:h-80" src={img} alt="product image" />
       </Link>
       <div className="px-5 pb-5">
         
@@ -20,18 +22,18 @@ const ChefCard = () => {
           <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
         </div>
         <div className="">
-          <span className='flex items-center text-slate-500'>Total Like:<AiOutlineHeart className='ml-2' />1K+</span>
+          <span className='flex items-center text-slate-500'>Total Like:<AiOutlineHeart className='ml-2' />{likes}+</span>
         </div>
         <div className="">
-          <span className='flex items-center text-slate-500'>Experience: 5years</span>
+          <span className='flex items-center text-slate-500'>Experience: {exp}</span>
         </div>
         <div className="">
-          <span className='flex items-center text-slate-500'>Total Recipe: 5</span>
+          <span className='flex items-center text-slate-500'>Total Recipe: {recipe}</span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-3xl font-bold text-gray-900 dark:text-white">Name</span>
+          <span className="text-3xl font-bold text-gray-900 dark:text-white">{name}</span>
 
-          <Link href="#" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Recipe</Link>
+          <Link to={`/chefs/${id}`} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Recipe</Link>
         </div>
       </div>
     </div>

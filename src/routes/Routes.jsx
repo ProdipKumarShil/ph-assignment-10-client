@@ -10,6 +10,7 @@ import Register from '../components/Account/Register/Register';
 import Login from '../components/Account/Login/Login';
 import ChefPage from '../components/another/ChefPage/ChefPage';
 import PrivateRoute from '../components/PrivateRoute/PrivateRoute';
+import SingleChef from '../components/another/SingleChef/SingleChef';
 
 const Routes = createBrowserRouter([
   {
@@ -37,6 +38,11 @@ const Routes = createBrowserRouter([
       {
         path: '/chefs',
         element: <ChefPage></ChefPage>
+      },
+      {
+        path: '/chefs/:id',
+        element: <SingleChef></SingleChef>,
+        loader:({params}) => fetch(`https://indiana-chef-server-prodipkumarshil.vercel.app/chefs/${params.id}`)
       }
     ]
   }

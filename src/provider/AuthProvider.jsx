@@ -11,6 +11,7 @@ const gitProvider = new GithubAuthProvider()
 
 const AuthProvider = ({children}) => {
 const [user, setUser] = useState({})
+const [chefs, setChefs] = useState([])
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, 
@@ -42,7 +43,13 @@ const [user, setUser] = useState({})
     return signOut(auth)
   }
 
-  // 
+  // load chefs data
+  useEffect(() => {
+    fetch('https://indiana-chef-server-prodipkumarshil.vercel.app/chefs')
+      .then(res => res.json())
+      .then(data => setChefs(data))
+  },[])
+
 
   const info = {
     googleSignUp,
@@ -50,7 +57,8 @@ const [user, setUser] = useState({})
     emailSignUp,
     emailSignIn,
     user,
-    logOut
+    logOut,
+    chefs
   }
   return (
     <AuthContext.Provider value={info}>
