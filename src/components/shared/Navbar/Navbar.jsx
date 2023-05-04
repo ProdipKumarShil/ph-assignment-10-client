@@ -5,7 +5,6 @@ import { AuthContext } from '../../../provider/AuthProvider';
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext)
-  console.log(user)
   return (
 
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -43,7 +42,7 @@ const Navbar = () => {
               </div>
             </li>
             <li>
-              {user ? <Link onClick={logOut} to="/account" className="btn w-20 h-10 flex items-center justify-center  text-gray-900 rounded md:border-0   dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Logout</Link> : <Link to="/account" className="btn w-20 h-10 flex items-center justify-center  text-gray-900 rounded md:border-0   dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</Link>}
+              {user ? <Link onClick={logOut} className="btn w-20 h-10 flex items-center justify-center  text-gray-900 rounded md:border-0   dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Logout</Link> : <Link to="/account" className="btn w-20 h-10 flex items-center justify-center  text-gray-900 rounded md:border-0   dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</Link>}
             </li>
           </ul>
         </div>
