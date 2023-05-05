@@ -17,6 +17,9 @@ import Blog from '../components/shared/Blog/Blog';
 import About from '../components/shared/About/About';
 import Main from '../layout/Main/Main';
 
+const LazyChefPage = React.lazy(() => import('../components/another/ChefPage/ChefPage'))
+const LazySingleChef = React.lazy(() => import('../components/another/SingleChef/SingleChef'))
+
 const Routes = createBrowserRouter([
   {
     path: "/",
@@ -57,11 +60,11 @@ const Routes = createBrowserRouter([
     children: [
       {
         path: '/chefs',
-        element: <ChefPage></ChefPage>
+        element: <React.Suspense fallback={<Loader></Loader>}><LazyChefPage /></React.Suspense>
       },
       {
         path: '/chefs/:id',
-        element: <SingleChef></SingleChef>,
+        element: <React.Suspense><LazySingleChef></LazySingleChef></React.Suspense>,
         loader:({params}) => fetch(`https://indiana-chef-server-prodipkumarshil.vercel.app/chefs/${params.id}`)
       }
     ]

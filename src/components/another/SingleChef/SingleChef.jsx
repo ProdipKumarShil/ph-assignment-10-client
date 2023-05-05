@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 import FoodSection from '../FoodList/FoodSection/FoodSection';
+const LazyFoodSection = React.lazy(() => import('../FoodList/FoodSection/FoodSection'))
 const SingleChef = () => {
   
 
@@ -35,7 +36,9 @@ const SingleChef = () => {
       </div>
       {/* recipes */}
       {/* all recipe are gose here from {name} */}
-      <FoodSection></FoodSection>
+      <React.Suspense>
+        <LazyFoodSection></LazyFoodSection>
+      </React.Suspense>
     </div>
   );
 };
