@@ -13,7 +13,7 @@ const Register = () => {
   const [password, setPassword] = useState('')
   const [photo_url, setPhoto_url] = useState('')
 
-  const { googleSignUp, githubSignUp, emailSignUp, user, setUser } = useContext(AuthContext)
+  const { googleSignUp, githubSignUp, emailSignUp, user, setUser, updateUser } = useContext(AuthContext)
   const handleGoogleSignUp = () => {
     googleSignUp()
       .then(result => {
@@ -60,8 +60,10 @@ const Register = () => {
     }
     emailSignUp(email, password)
       .then(result => {
+        const userInfo = { displayName: name, photoURL: photo_url }
+        updateUser(userInfo)
+        .then(() => {console.log()})
         console.log(result.user)
-        const displayName = result.name
         toast.success('Register success fully')
       })
       .catch(error => {
@@ -69,6 +71,8 @@ const Register = () => {
         console.log(error)
       })
   }
+
+  console.log(photo_url)
 
   
   return (

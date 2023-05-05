@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext(null)
@@ -13,15 +13,7 @@ const AuthProvider = ({children}) => {
 const [user, setUser] = useState({})
 const [chefs, setChefs] = useState([])
 
-  useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, 
-      (loggedInUser) => {
-        setUser(loggedInUser);
-      })
-      return () => {
-        unSubscribe()
-      }
-  }, [])
+  
 
   const googleSignUp = () => {
     return signInWithPopup(auth, googleProvider)
@@ -43,12 +35,27 @@ const [chefs, setChefs] = useState([])
     return signOut(auth)
   }
 
+  const updateUser = userInfo => {
+    return updateProfile(auth.currentUser, userInfo)
+  }
+
   // load chefs data
   useEffect(() => {
     fetch('https://indiana-chef-server-prodipkumarshil.vercel.app/chefs')
       .then(res => res.json())
       .then(data => setChefs(data))
   },[])
+
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth,
+      (loggedInUser) => {
+        setUser(loggedInUser);
+        
+      })
+    return () => {
+      unSubscribe()
+    }
+  }, [])
 
 
   const info = {
@@ -58,7 +65,8 @@ const [chefs, setChefs] = useState([])
     emailSignIn,
     user,
     logOut,
-    chefs
+    chefs,
+    updateUser
   }
   return (
     <AuthContext.Provider value={info}>

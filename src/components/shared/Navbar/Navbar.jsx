@@ -5,6 +5,7 @@ import { AuthContext } from '../../../provider/AuthProvider';
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext)
+  console.log(user)
   return (
 
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
