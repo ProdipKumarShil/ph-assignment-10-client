@@ -11,11 +11,31 @@ import Login from '../components/Account/Login/Login';
 import ChefPage from '../components/another/ChefPage/ChefPage';
 import PrivateRoute from '../components/PrivateRoute/PrivateRoute';
 import SingleChef from '../components/another/SingleChef/SingleChef';
+import ErrorPage from '../components/shared/ErrorPage/ErrorPage';
+import Loader from '../components/shared/Loader/Loader';
+import Blog from '../components/shared/Blog/Blog';
+import About from '../components/shared/About/About';
+import Main from '../layout/Main/Main';
 
 const Routes = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: '/',
+        element: <Main></Main>
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>
+      },
+      {
+        path: '/about_us',
+        element: <About></About>
+      }
+    ]
   },
   {
     path: '/account',

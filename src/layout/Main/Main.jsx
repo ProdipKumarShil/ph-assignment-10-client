@@ -10,14 +10,15 @@ import Login from '../../components/Account/Login/Login';
 import Register from '../../components/Account/Register/Register';
 import { Outlet } from 'react-router-dom';
 
-const Home = () => {
+const Main = () => {
   return (
     <div>
-      <Navbar></Navbar>
-      <Outlet></Outlet>
-      <Footer></Footer>
+      <Banner></Banner>
+      <CounterCard></CounterCard>
+      <ChefSection></ChefSection>
+      <Hero></Hero>
     </div>
   );
 };
 
-export default Home;
+export default Main;
