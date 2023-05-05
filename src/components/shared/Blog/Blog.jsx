@@ -41,8 +41,9 @@ const Blog = () => {
           You might want to create a custom hook for several reasons:
           Reusability: If you find yourself repeating the same logic across multiple components, it's a good candidate for a custom hook. By abstracting the logic into a custom hook, you can reuse the logic across different components.
           Abstraction: Custom hooks can provide a simpler and more focused interface to your components, hiding away complex details and reducing the cognitive load of your components.
-          Testability: By extracting logic into a custom hook, you can more easily test the logic in isolation, without the need to render a full component.</p>
-        This custom hook uses the built-in useState and useEffect hooks to fetch data from an API and returns an object with the fetched data, a loading state, and an error state. This hook can be used in multiple components that need to fetch data from the same API.
+          Testability: By extracting logic into a custom hook, you can more easily test the logic in isolation, without the need to render a full component.
+          This custom hook uses the built-in useState and useEffect hooks to fetch data from an API and returns an object with the fetched data, a loading state, and an error state. This hook can be used in multiple components that need to fetch data from the same API.
+        </p>
       </div>
 
     </div>
