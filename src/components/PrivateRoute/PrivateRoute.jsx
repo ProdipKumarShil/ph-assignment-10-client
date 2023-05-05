@@ -11,7 +11,7 @@ const PrivateRoute = ({children}) => {
     return children
   }
   else{
-    return <Navigate  to='/account'></Navigate>
+    return <Navigate  to='/account/register'></Navigate>
   }
 };
 
