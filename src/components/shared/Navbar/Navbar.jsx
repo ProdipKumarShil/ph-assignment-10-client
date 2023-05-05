@@ -5,7 +5,6 @@ import { AuthContext } from '../../../provider/AuthProvider';
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext)
-  console.log(user)
   return (
 
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -24,7 +23,7 @@ const Navbar = () => {
               <NavLink to='/' className={({ isActive }) => isActive ? 'block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500' : 'block py-2 pl-3 pr-4  bg-blue-700 rounded md:bg-transparent  md:p-0 dark:text-white '}>Home</NavLink>
             </li>
             <li>
-              <NavLink to='/blog' className={({ isActive }) => isActive ? 'block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500' : 'block py-2 pl-3 pr-4  bg-blue-700 rounded md:bg-transparent  md:p-0 dark:text-white '}>blog</NavLink>
+              <NavLink to='/blog' className={({ isActive }) => isActive ? 'block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500' : 'block py-2 pl-3 pr-4  bg-blue-700 rounded md:bg-transparent  md:p-0 dark:text-white '}>Blog</NavLink>
             </li>
             <li>
               <NavLink to='/about_us' className={({ isActive }) => isActive ? 'block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500' : 'block py-2 pl-3 pr-4  bg-blue-700 rounded md:bg-transparent  md:p-0 dark:text-white '}>About us</NavLink>

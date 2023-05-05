@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import google from '../../../assets/imgs/google-g.png'
 import git from '../../../assets/imgs/git-g.png'
 import mail from '../../../assets/imgs/email.png'
 import { AuthContext } from '../../../provider/AuthProvider';
 import { Toaster, toast } from 'react-hot-toast';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 
 const Register = () => {
   const [passwordError, setPasswordError] = useState('')
@@ -12,14 +13,16 @@ const Register = () => {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [photo_url, setPhoto_url] = useState('')
+  const navigate = useNavigate()
 
   const { googleSignUp, githubSignUp, emailSignUp, user, setUser, updateUser } = useContext(AuthContext)
   const handleGoogleSignUp = () => {
     googleSignUp()
       .then(result => {
         const mUser = setUser(result.user)
-        console.log(mUser)
+        navigate('/')
         toast.success('success fully login')
+        navigate('/')
       })
       .catch(err => {
         const er = err.message
@@ -34,6 +37,7 @@ const Register = () => {
         console.log('git login done')
         console.log(result)
         toast.success('success fully login')
+        navigate('/')
       })
       .catch(err => {
         console.log(err)
@@ -43,7 +47,7 @@ const Register = () => {
 
   const handleSignUp = (e) => {
     e.preventDefault()
-    if(password.length < 8){
+    if(password.length < 6){
       setPasswordError('password must be 8 char long')
       return
     }
@@ -65,6 +69,7 @@ const Register = () => {
         .then(() => {console.log()})
         console.log(result.user)
         toast.success('Register success fully')
+        navigate('/')
       })
       .catch(error => {
         toast.error('Register failed')
@@ -86,9 +91,9 @@ const Register = () => {
           <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
           <input onChange={(e) => setEmail(e.target.value)} type="email" id="email" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="email" required />
         </div>
-        <div className="mb-6">
+        <div className="mb-6 ">
           <label htmlFor="password" className={passwordError ? 'block mb-2 text-sm font-medium text-red-600' : 'block mb-2 text-sm font-medium text-gray-900 '}>Your password</label>
-          <input onChange={(e) => setPassword(e.target.value)} type="" id="password" className={passwordError ? "shadow-sm bg-gray-50 border border-red-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" : "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"} placeholder="password" required />
+          <input onChange={(e) => setPassword(e.target.value)} type='password' id="password" className={passwordError ? "shadow-sm bg-gray-50 border border-red-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" : "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"} placeholder="password" required />
           {passwordError && <p className='text-red-600 ms-2'><small>{passwordError}</small></p>}
         </div>
         <div className="mb-6">

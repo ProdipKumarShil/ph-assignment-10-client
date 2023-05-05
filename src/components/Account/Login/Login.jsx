@@ -19,6 +19,7 @@ const Login = () => {
         console.log('done')
         console.log(result.user)
         toast.success('success fully login')
+        navigate('/')
       })
       .catch(err => {
         const er = err.message
@@ -32,6 +33,7 @@ const Login = () => {
       .then(result => {
         console.log('git login done')
         console.log(result)
+        navigate('/')
       })
       .catch(err => {
         console.log(err)
@@ -59,7 +61,7 @@ const Login = () => {
     emailSignIn(email, password)
       .then(result => {
         toast.success('Successfully login')
-        
+        navigate('/')
       })
       .catch(error => {
         toast.error('Login Filed')
@@ -77,7 +79,7 @@ const Login = () => {
         </div>
         <div className="mb-6">
           <label htmlFor="password" className={error ? 'block mb-2 text-sm font-medium text-red-600' : 'block mb-2 text-sm font-medium text-gray-900 '}>Your password</label>
-          <input onChange={(e) => setPassword(e.target.value)} type="" id="password" className={error ? "shadow-sm bg-gray-50 border border-red-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" : "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"} required/>
+          <input onChange={(e) => setPassword(e.target.value)} type="password" id="password" className={error ? "shadow-sm bg-gray-50 border border-red-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" : "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"} required/>
           {error && <p className='text-red-600 ms-2'><small>{error}</small></p>}
         </div>
         <div className="flex items-start mb-6">
