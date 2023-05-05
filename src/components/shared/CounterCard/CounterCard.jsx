@@ -21,7 +21,7 @@ const CounterCard = () => {
             <dd className="text-gray-500 dark:text-gray-400">Trusted Company</dd>
           </div>
           <div className="flex flex-col items-center justify-center">
-            <dt className="mb-2 text-3xl font-extrabold">$<CountUp end={500} duration={5}></CountUp>K+</dt>
+            <dt className="mb-2 text-3xl font-extrabold">$<CountUp end={1} duration={5}></CountUp>B+</dt>
             <dd className="text-gray-500 dark:text-gray-400">Income per Month</dd>
           </div>
           <div className="flex flex-col items-center justify-center">
