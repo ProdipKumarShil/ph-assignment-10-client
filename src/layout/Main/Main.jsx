@@ -5,6 +5,7 @@ import Hero from '../../components/shared/Hero/Hero';
 import ChefSection from '../../components/shared/ChefSection/ChefSection';
 import Review from '../../components/another/Review/Review';
 import ReviewSection from '../../components/another/ReviewSection/ReviewSection';
+import Carosoul from '../../components/another/Carosoul/Carosoul';
 
 const Main = () => {
   return (
@@ -14,6 +15,7 @@ const Main = () => {
       <ChefSection></ChefSection>
       <ReviewSection></ReviewSection>
       <Hero></Hero>
+      <Carosoul></Carosoul>
     </div>
   );
 };
