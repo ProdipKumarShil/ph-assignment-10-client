@@ -72,6 +72,7 @@ const Login = () => {
   
   return (
     <div>
+      <h1 className='max-w-screen-xl mx-auto p-8 text-center text-5xl font-semibold text-slate-600'>Please Login</h1>
       <form onSubmit={handleEmailLogin} className='w-full md:w-1/2 px-8 py-4 mx-auto'>
         <div className="mb-6">
           <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
