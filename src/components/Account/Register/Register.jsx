@@ -60,7 +60,8 @@ const Register = () => {
     }
     emailSignUp(email, password)
       .then(result => {
-        console.log(result)
+        console.log(result.user)
+        const displayName = result.name
         toast.success('Register success fully')
       })
       .catch(error => {
