@@ -1,4 +1,5 @@
 import React from 'react';
+import ReviewSection from '../../another/ReviewSection/ReviewSection';
 
 const Hero = () => {
   return (

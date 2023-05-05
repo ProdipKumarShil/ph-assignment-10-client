@@ -21,7 +21,7 @@ const Footer = () => {
                   <a href="#" className="hover:underline">Indiana Chefs</a>
                 </li>
                 <li>
-                  <a href="Our Chefs" className="hover:underline">Tailwind CSS</a>
+                  <a href="Our Chefs" className="hover:underline">Our Chefs</a>
                 </li>
               </ul>
             </div>
